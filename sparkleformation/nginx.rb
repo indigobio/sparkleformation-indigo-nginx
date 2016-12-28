@@ -57,6 +57,14 @@ EOF
            :target_sg => attr!(:nginx_ec2_security_group, 'GroupId')
           )
 
+  dynamic!(:security_group_ingress, 'nginx-to-empire-minions-http',
+           :source_sg => attr!(:nginx_ec2_security_group, 'GroupId'),
+           :ip_protocol => 'tcp',
+           :from_port => '80',
+           :to_port => '80',
+           :target_sg => registry!(:my_security_group_id, 'minion_sg')
+          )
+
   dynamic!(:iam_instance_profile, 'nginx',
            :chef_bucket => registry!(:my_s3_bucket, 'chef')
           )
@@ -92,7 +100,11 @@ EOF
            :notification_topic => registry!(:my_sns_topics, ENV['notification_topic'])
           )
 
-  # TODO
-  #dynamic!(:route53_record_set, 'public_elb', :record => "#{ENV['lb_name']}", :target => :public_elb, :domain_name => ENV['public_domain'], :attr => 'CanonicalHostedZoneName', :ttl => '60')
-
+  dynamic!(:record_set, 'wildcard',
+           :record => '*',
+           :target => :public_elastic_load_balancing_load_balancer,
+           :domain_name => ENV['public_domain'],
+           :attr => 'CanonicalHostedZoneName',
+           :ttl => '60'
+  )
 end

@@ -1,21 +1,28 @@
 GIT
   remote: https://github.com/gswallow/sparkle-pack-aws-ebs-volumes.git
-  revision: 893565ec96fd87990b91f71a88e32ffdf4a10d7e
+  revision: cdc321cc5fb0d5f78f20fa6e6295ed8b810a2f95
   specs:
     sparkle-pack-aws-ebs-volumes (0.0.1)
       aws-sdk-core (~> 2)
 
 GIT
   remote: https://github.com/gswallow/sparkle-pack-aws-instance-types.git
-  revision: 55e71f7a664e0eb84773e3ab01af7f44b56c9d18
+  revision: 043fce0067ffed7929623ca94018670397f40a7a
   specs:
     sparkle-pack-aws-instance-types (0.0.1)
 
 GIT
   remote: https://github.com/gswallow/sparkle-pack-aws-my-load-balancers
-  revision: e4384e1280e03f77077dbeec6854c2f0364135d3
+  revision: b44f16827f157b9a9e9e37919ee0c382bee9e004
   specs:
     sparkle-pack-aws-my-load-balancers (0.0.1)
+      aws-sdk-core (~> 2)
+
+GIT
+  remote: https://github.com/gswallow/sparkle-pack-aws-my-route53-zones
+  revision: 30f0329f40016f93dc18a4295063b091f6549791
+  specs:
+    sparkle-pack-aws-my-route53-zones (0.0.1)
       aws-sdk-core (~> 2)
 
 GIT
@@ -27,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/gswallow/sparkle-pack-aws-my-security-groups.git
-  revision: e48861773036d9de87f2d217964d2c984a7e9ad1
+  revision: 0b37110cd25407b4de0311e5ce2ae90acfde31e7
   specs:
     sparkle-pack-aws-my-security-groups (0.0.1)
       aws-sdk-core (~> 2)
@@ -48,7 +55,7 @@ GIT
 
 GIT
   remote: https://github.com/gswallow/sparkle-pack-aws-my-subnets.git
-  revision: 80f4954039b8a7056fe75d549f1fd6a23aca391a
+  revision: 1fac129a8e870765bd706b801ed808d5a0a5c539
   specs:
     sparkle-pack-aws-my-subnets (0.0.1)
       aws-sdk-core (~> 2)
@@ -67,7 +74,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     attribute_struct (0.3.4)
       bogo (>= 0.1.31, < 0.3.0)
-    aws-sdk-core (2.6.32)
+    aws-sdk-core (2.6.42)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
     aws-sigv4 (1.0.0)
@@ -125,9 +132,9 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     multi_json (1.12.1)
-    multi_xml (0.5.5)
-    net-ssh (3.2.0)
-    paint (1.0.1)
+    multi_xml (0.6.0)
+    net-ssh (4.0.0)
+    paint (2.0.0)
     public_suffix (2.0.4)
     sfn (3.0.20)
       bogo-cli (>= 0.2.5, < 0.4)
@@ -164,6 +171,7 @@ DEPENDENCIES
   sparkle-pack-aws-ebs-volumes!
   sparkle-pack-aws-instance-types!
   sparkle-pack-aws-my-load-balancers!
+  sparkle-pack-aws-my-route53-zones!
   sparkle-pack-aws-my-s3-buckets!
   sparkle-pack-aws-my-security-groups!
   sparkle-pack-aws-my-server-certificates!
