@@ -1,5 +1,5 @@
 ENV['chef_run_list']      ||= 'role[base],role[loadbalancer]'
-ENV['notification_topic'] ||= "#{ENV['org']}-#{ENV['environment']}-deregister-chef-node"
+ENV['notification_topic'] ||= "#{ENV['org']}_#{ENV['environment']}_deregister_chef_node"
 ENV['lb_name']            ||= "#{ENV['org']}-#{ENV['environment']}-public-elb"
 
 SparkleFormation.new(:vpn, :provider => :aws).load(:base, :chef_base, :ssh_key_pair, :trusty_ami, :elb_security_policies).overrides do
