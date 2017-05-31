@@ -15,7 +15,8 @@ Configuration.new do
     'sparkle-pack-aws-my-server-certificates',
     'sparkle-pack-aws-my-sns-topics',
     'sparkle-pack-aws-my-subnets',
-    'sparkle-pack-cfn-init-chef'
+    'sparkle-pack-cfn-init-chef',
+    'sparkle-pack-git-rev-outputs'
   ]
   #   Set style of stack nesting
   apply_nesting 'deep'

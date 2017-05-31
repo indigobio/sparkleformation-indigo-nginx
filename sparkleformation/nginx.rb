@@ -2,7 +2,7 @@ ENV['chef_run_list']      ||= 'role[base],role[loadbalancer]'
 ENV['notification_topic'] ||= "#{ENV['org']}_#{ENV['environment']}_deregister_chef_node"
 ENV['lb_name']            ||= "#{ENV['org']}-#{ENV['environment']}-public-elb"
 
-SparkleFormation.new(:vpn, :provider => :aws).load(:base, :chef_base, :ssh_key_pair, :trusty_ami, :elb_security_policies).overrides do
+SparkleFormation.new(:vpn, :provider => :aws).load(:base, :chef_base, :ssh_key_pair, :trusty_ami, :elb_security_policies, :git_rev_outputs).overrides do
   description <<"EOF"
 Nginx EC2 instance, configured by Chef. Public ELB. Public security group. Nginx security group. Route53 record: *.#{ENV['public_domain']}.
 EOF
