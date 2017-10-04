@@ -8,6 +8,21 @@ SparkleFormation.dynamic(:elb) do |_name, _config = {}|
     constraint_description 'can only contain ASCII characters'
   end
 
+  parameters("#{_name}_elb_draining_enabled".to_sym) do
+    type 'String'
+    allowed_values %w(true false)
+    default _config.fetch(:draining_policy, 'true')
+    description "Enable connection draining"
+  end
+
+  parameters("#{_name}_elb_draining_timeout".to_sym) do
+    type 'Number'
+    max_value 3600
+    min_value 1
+    default _config.fetch(:draining_timeout, 300)
+    description "Connection drain timeout.  Use a value between 1 and 3600."
+  end
+
   dynamic!(:elastic_load_balancing_load_balancer, _name).properties do
     cross_zone 'true'
     connection_settings do
@@ -35,6 +50,10 @@ SparkleFormation.dynamic(:elb) do |_name, _config = {}|
       target "TCP:#{_config[:listeners].first[:instance_port]}"
       timeout _config.fetch(:hc_timeout, 5)
       unhealthy_threshold _config.fetch(:hc_unhealthy_threshold, 3)
+    end
+    connection_draining_policy do
+      enabled ref!("#{_name}_elb_draining_enabled".to_sym)
+      timeout ref!("#{_name}_elb_draining_timeout".to_sym)
     end
     policies _array(
       *_config.fetch(:policies, []).map { |l| -> {
