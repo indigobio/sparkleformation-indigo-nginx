@@ -4,7 +4,6 @@ SparkleFormation.dynamic(:launch_config) do |_name, _config = {}|
   _config[:iam_instance_profile] ||= "#{_name}_i_a_m_instance_profile".to_sym
   _config[:iam_role]             ||= "#{_name}_i_a_m_role".to_sym
   _config[:chef_run_list]        ||= 'role[base]'
-  _config[:chef_version]         ||= '12.4.0'
 
   parameters("#{_name}_instance_type".to_sym) do
     type 'String'
