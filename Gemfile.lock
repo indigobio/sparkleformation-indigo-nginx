@@ -62,9 +62,9 @@ GIT
 
 GIT
   remote: https://github.com/gswallow/sparkle-pack-cfn-init-chef.git
-  revision: c360972db2b5855e5fdda9400e7965bc4553d480
+  revision: b70e33ce40c79b2555eb9c6d71b6c6ff3d9ef91e
   specs:
-    sparkle-pack-cfn-init-chef (0.0.5)
+    sparkle-pack-cfn-init-chef (0.0.6)
       sparkle_formation
 
 GIT
@@ -80,7 +80,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     attribute_struct (0.4.2)
       bogo (>= 0.1.31, < 0.3.0)
-    aws-sdk-core (2.10.58)
+    aws-sdk-core (2.10.60)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
     aws-sigv4 (1.0.2)
