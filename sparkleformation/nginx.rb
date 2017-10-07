@@ -41,14 +41,6 @@ EOF
            :target_sg => attr!(:nginx_ec2_security_group, 'GroupId')
           )
 
-  dynamic!(:security_group_ingress, 'nginx-to-nat-all',
-           :source_sg => attr!(:nginx_ec2_security_group, 'GroupId'),
-           :ip_protocol => '-1',
-           :from_port => '-1',
-           :to_port => '-1',
-           :target_sg => registry!(:my_security_group_id, 'nat_sg')
-          )
-
   dynamic!(:security_group_ingress, 'vpn-to-nginx-all',
            :source_sg => registry!(:my_security_group_id,  'vpn_sg'),
            :ip_protocol => '-1',
