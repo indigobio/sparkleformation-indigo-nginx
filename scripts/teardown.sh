@@ -33,4 +33,9 @@ stack=$(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPD
   --query 'StackSummaries[].StackId' --output table | grep ${environment}-nginx-${AWS_DEFAULT_REGION} \
   | awk '{print $2}')
 
-del_stack $stack
+if [ -n "$stack" ]; then
+  del_stack $stack
+else
+  echo "No stack found."
+  exit 1
+fi
