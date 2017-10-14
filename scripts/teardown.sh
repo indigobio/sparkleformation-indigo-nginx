@@ -37,5 +37,4 @@ if [ -n "$stack" ]; then
   del_stack $stack
 else
   echo "No stack found."
-  exit 1
 fi
